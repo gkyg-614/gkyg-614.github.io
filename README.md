@@ -1,4 +1,4 @@
-# Gulshan Kumar â€” Portfolio
+# Gulshan Kumar — Portfolio
 
 Personal portfolio website for Gulshan Kumar, a Java Developer at VSM Infotech Pvt Ltd, Bengaluru.
 
@@ -8,12 +8,12 @@ Personal portfolio website for Gulshan Kumar, a Java Developer at VSM Infotech P
 
 This is a single-page portfolio built with plain HTML and CSS (no build tools, no frameworks). It covers:
 
-- **Hero** â€” name, role, and a short intro
-- **About** â€” a short bio and current work
-- **Skills** â€” languages, frameworks, databases, and tools
-- **Projects** â€” selected work, currently featuring ZKBioSecurity
-- **Experience** â€” work history and education
-- **Contact** â€” email and social links
+- **Hero** — name, role, and a short intro
+- **About** — a short bio and current work
+- **Skills** — languages, frameworks, databases, and tools
+- **Projects** — selected work, currently featuring ZKBioSecurity
+- **Experience** — work history and education
+- **Contact** — email and social links
 
 ## Tech used
 
@@ -25,8 +25,8 @@ This is a single-page portfolio built with plain HTML and CSS (no build tools, n
 
 ```
 gkyg-614.github.io/
-â”œâ”€â”€ index.html    # the entire site â€” structure, styles, and content
-â””â”€â”€ README.md     # this file
++-- index.html    # the entire site — structure, styles, and content
++-- README.md     # this file
 
 ## Contact
 
