@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex Morgan — Java Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #f3efe4;
+    --ink: #1f2d24;
+    --ink-soft: #3c4a3f;
+    --panel: #253327;
+    --panel-2: #1a251c;
+    --cream: #ece4d1;
+    --brass: #b08d57;
+    --brass-bright: #cda86a;
+    --rule: rgba(236,228,209,0.16);
+    --rule-dark: rgba(31,45,36,0.14);
+    --maxw: 720px;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{ color:inherit; }
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--panel);
+    color:var(--cream);
+    background-image:
+      radial-gradient(ellipse at 85% -10%, rgba(176,141,87,0.25), transparent 55%),
+      linear-gradient(180deg, var(--panel), var(--panel-2));
+  }
+
+  .hero-inner{
+    padding:96px 28px 84px;
+  }
+
+  .hero-eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    color:var(--brass-bright);
+    margin:0 0 22px;
+    letter-spacing:0.02em;
+  }
+
+  .hero h1{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-style:italic;
+    font-size:clamp(42px, 7vw, 64px);
+    line-height:1.05;
+    margin:0 0 20px;
+    letter-spacing:-0.01em;
+  }
+
+  .hero p.lede{
+    font-size:19px;
+    max-width:52ch;
+    color:rgba(236,228,209,0.86);
+    margin:0 0 34px;
+  }
+
+  .hero-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 28px;
+    font-size:14.5px;
+    color:rgba(236,228,209,0.7);
+    border-top:1px solid var(--rule);
+    padding-top:22px;
+  }
+
+  .hero-meta span b{
+    color:var(--cream);
+    font-weight:500;
+  }
+
+  .hero-links{
+    margin-top:30px;
+    display:flex;
+    gap:22px;
+  }
+
+  .hero-links a{
+    text-decoration:none;
+    font-size:15px;
+    color:var(--cream);
+    border-bottom:1px solid var(--brass);
+    padding-bottom:2px;
+    transition:opacity 0.15s ease;
+  }
+  .hero-links a:hover{ opacity:0.7; }
+
+  /* ---------- SECTIONS ---------- */
+  section{ padding:64px 0; }
+  section + section{ border-top:1px solid var(--rule-dark); }
+
+  .label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    color:var(--brass);
+    margin:0 0 26px;
+  }
+
+  h2.section-title{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:30px;
+    margin:0 0 22px;
+    color:var(--ink);
+  }
+
+  .about p{
+    max-width:66ch;
+    color:var(--ink-soft);
+    font-size:17px;
+  }
+
+  .about p + p{ margin-top:16px; }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:28px 40px;
+  }
+
+  .skill-group h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-style:italic;
+    font-size:18px;
+    margin:0 0 10px;
+    color:var(--panel);
+  }
+
+  .skill-group ul{
+    list-style:none;
+    margin:0; padding:0;
+    color:var(--ink-soft);
+    font-size:15.5px;
+  }
+  .skill-group li{ padding:3px 0; }
+
+  /* ---------- PROJECTS (index style) ---------- */
+  .project{
+    display:grid;
+    grid-template-columns:44px 1fr;
+    gap:4px 24px;
+    padding:26px 0;
+    border-top:1px solid var(--rule-dark);
+  }
+  .project:first-of-type{ border-top:none; }
+
+  .project-num{
+    font-family:'JetBrains Mono', monospace;
+    font-size:14px;
+    color:var(--brass);
+    padding-top:4px;
+  }
+
+  .project h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:22px;
+    margin:0 0 8px;
+    grid-column:2;
+  }
+
+  .project p{
+    grid-column:2;
+    color:var(--ink-soft);
+    margin:0 0 12px;
+    max-width:60ch;
+    font-size:16px;
+  }
+
+  .project-meta{
+    grid-column:2;
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    align-items:center;
+  }
+
+  .project-stack{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+
+  .project-link{
+    font-size:14px;
+    text-decoration:none;
+    color:var(--panel);
+    border-bottom:1px solid var(--brass);
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+  .role{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:6px 24px;
+    padding:22px 0;
+    border-top:1px solid var(--rule-dark);
+  }
+  .role:first-of-type{ border-top:none; }
+
+  .role-period{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13.5px;
+    color:var(--ink-soft);
+    padding-top:3px;
+  }
+
+  .role-title{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:19px;
+    margin:0 0 6px;
+  }
+
+  .role-org{
+    font-size:14.5px;
+    color:var(--brass);
+    font-family:'JetBrains Mono', monospace;
+    margin-bottom:8px;
+  }
+
+  .role p.desc{
+    color:var(--ink-soft);
+    margin:0;
+    max-width:56ch;
+    font-size:15.5px;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    background:var(--panel);
+    color:var(--cream);
+  }
+  .contact h2.section-title{ color:var(--cream); }
+  .contact p{ color:rgba(236,228,209,0.8); max-width:52ch; font-size:17px; }
+
+  .contact-row{
+    margin-top:30px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px 32px;
+  }
+
+  .contact-row a{
+    text-decoration:none;
+    font-size:16px;
+    color:var(--cream);
+    border-bottom:1px solid var(--brass);
+    padding-bottom:2px;
+  }
+
+  footer{
+    padding:26px 28px 40px;
+    font-size:13px;
+    color:rgba(236,228,209,0.45);
+    background:var(--panel-2);
+  }
+
+  @media (max-width:560px){
+    .skills-grid{ grid-template-columns:1fr; }
+    .project{ grid-template-columns:1fr; }
+    .project-num{ padding-top:0; }
+    .role{ grid-template-columns:1fr; }
+  }
+
+  :focus-visible{
+    outline:2px solid var(--brass);
+    outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <p class="hero-eyebrow">Java Developer — Backend &amp; Distributed Systems</p>
+    <h1>Alex Morgan</h1>
+    <p class="lede">I build reliable systems for products that can't afford to go down — payments infrastructure, data pipelines, and the quiet plumbing underneath them, mostly in Java and Spring.</p>
+    <div class="hero-links">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Get in touch</a>
+    </div>
+    <div class="hero-meta">
+      <span><b>7 years</b> in production systems</span>
+      <span>Based in <b>Bengaluru, India</b></span>
+      <span>Open to <b>senior backend roles</b></span>
+    </div>
+  </div>
+</header>
+
+<section class="about">
+  <div class="wrap">
+    <p class="label">About</p>
+    <h2 class="section-title">A little about my work</h2>
+    <p>I'm a backend engineer who cares more about a system's failure modes than its happy path. Most of my career has been spent on services that move money or move data — places where a quiet bug on a Friday afternoon becomes everyone's Saturday.</p>
+    <p>Lately I've been deep in event-driven architecture and the tradeoffs between consistency and availability that never really go away, no matter how many queues you add. Outside of work I write about systems design and contribute to a couple of open-source tracing tools.</p>
+  </div>
+</section>
+
+<section class="skills">
+  <div class="wrap">
+    <p class="label">Skills</p>
+    <h2 class="section-title">What I work with</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Languages</h3>
+        <ul>
+          <li>Java</li>
+          <li>Kotlin</li>
+          <li>SQL</li>
+          <li>Python</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Frameworks &amp; infra</h3>
+        <ul>
+          <li>Spring Boot</li>
+          <li>Hibernate / JPA</li>
+          <li>Kafka</li>
+          <li>PostgreSQL</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Practices</h3>
+        <ul>
+          <li>Distributed systems design</li>
+          <li>API design</li>
+          <li>Incident response</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Currently learning</h3>
+        <ul>
+          <li>Kotlin coroutines</li>
+          <li>Kubernetes operators</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="projects">
+  <div class="wrap">
+    <p class="label">Selected work</p>
+    <h2 class="section-title">Projects</h2>
+
+    <div class="project">
+      <div class="project-num">01</div>
+      <h3>Ledger — event-sourced payments core</h3>
+      <p>Rebuilt a legacy payments system as an event-sourced ledger, cutting reconciliation discrepancies to near zero and giving support a full audit trail for every transaction.</p>
+      <div class="project-meta">
+        <span class="project-stack">Java · Spring Boot · Kafka · PostgreSQL</span>
+        <a class="project-link" href="#">View writeup</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-num">02</div>
+      <h3>Waypoint — internal tracing dashboard</h3>
+      <p>An open-source-adjacent tool for tracing requests across a dozen microservices, built after one too many afternoons spent grepping logs across five terminals.</p>
+      <div class="project-meta">
+        <span class="project-stack">Java · gRPC · ClickHouse</span>
+        <a class="project-link" href="#">View on GitHub</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-num">03</div>
+      <h3>Fieldnotes — a writing project</h3>
+      <p>A small, fast blog engine I built for myself to write about systems design, with none of the bloat of the platforms I kept abandoning.</p>
+      <div class="project-meta">
+        <span class="project-stack">Java · Spring Boot · SQLite</span>
+        <a class="project-link" href="#">Read the blog</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="experience">
+  <div class="wrap">
+    <p class="label">Experience</p>
+    <h2 class="section-title">Where I've worked</h2>
+
+    <div class="role">
+      <div class="role-period">2022—Now</div>
+      <div>
+        <h3 class="role-title">Senior Backend Engineer</h3>
+        <p class="role-org">Northbeam Payments</p>
+        <p class="desc">Own the core ledger and settlement pipeline. Led the migration from a monolith to event-driven services, reducing p99 latency by 60%.</p>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-period">2019—2022</div>
+      <div>
+        <h3 class="role-title">Backend Engineer</h3>
+        <p class="role-org">Fielder Labs</p>
+        <p class="desc">Built and maintained data ingestion pipelines processing several million events a day for a logistics analytics product.</p>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-period">2017—2019</div>
+      <div>
+        <h3 class="role-title">Software Engineer</h3>
+        <p class="role-org">Ridgeline Software</p>
+        <p class="desc">Full-stack work on internal tooling; first engineering hire on a small team, wore every hat from schema design to on-call.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <p class="label">Get in touch</p>
+    <h2 class="section-title">Let's talk</h2>
+    <p>Whether you have a role in mind, a system you'd like a second opinion on, or just want to talk about queues — I'd like to hear from you.</p>
+    <div class="contact-row">
+      <a href="mailto:alex.morgan@example.com">alex.morgan@example.com</a>
+      <a href="#">GitHub</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="padding:0;">Alex Morgan — built with care, not a template.</div>
+</footer>
+
+</body>
+</html>
